@@ -39,24 +39,25 @@ print(expanded_form(12))
 
 # 4
 
-def func_decorator(func):
+def decor(func):
     count: int = 0
 
-    def wrapper():
+    def inner():
+        print('*' * 20)
         nonlocal count
         count += 1
         func()
         print(f'{count}')
 
-    return wrapper
+    return inner
 
 
-@func_decorator
+@decor
 def func1():
     print('func1')
 
 
-@func_decorator
+@decor
 def func2():
     print('func2')
 
